@@ -1,8 +1,8 @@
 services:
   mysql:
     container_name: bisheng-mysql
-    image: mysql:8.0
-    
+    image: mysql:latest
+    # image: mysql:8.0
     ports:
       - "3306:3306"
     environment:
@@ -22,7 +22,8 @@ services:
 
   redis:
     container_name: bisheng-redis
-    image: redis:7.0.4
+    image: redis:latest
+    # image: redis:7.0.4
     ports:
       - "6379:6379"
     environment:
@@ -159,7 +160,8 @@ services:
 
   milvus:
     container_name: milvus-standalone
-    image: milvusdb/milvus:v2.3.3
+    image: milvusdb/milvus:latest
+    # image: milvusdb/milvus:v2.3.3
     command: ["milvus", "run", "standalone"]
     security_opt:
     - seccomp:unconfined
@@ -182,6 +184,7 @@ services:
     depends_on:
       - etcd
       - minio
+
 networks:
   default:
     driver: bridge
